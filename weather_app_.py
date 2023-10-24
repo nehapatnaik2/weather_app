@@ -10,7 +10,7 @@ def show_page():
 @app.route('/weatherapp', methods =['POST', 'GET'])
 def get_weatherdata():
     url = "https://api.openweathermap.org/data/2.5/weather"
-    
+
     param = {'q': request.form.get('city'),
     'units': request.form.get('units'),
     'appid': request.form.get('appid')}

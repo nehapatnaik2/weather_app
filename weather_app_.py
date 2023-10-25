@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_page():
-    return render_template('index1.html')
+    return render_template('weather.html')
 
 @app.route('/weatherapp', methods =['POST', 'GET'])
 def get_weatherdata():
@@ -17,9 +17,10 @@ def get_weatherdata():
 
     response = requests.get(url,params= param)
     data = response.json()
+    city = data['name']
 
-    return f"data is : {data}"
+    return f"data is : {data}, city : {city}"
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 5002) # mention port = 5002, if needed.
-
+    app.run(host = '0.0.0.0', port = 8080) 
+    
